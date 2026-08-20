@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flipkart Clone - Online Shopping</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo-section">
+            <div class="logo">
+                Flip<span>kart</span>
+            </div>
+
+            <small>Explore <b>Plus</b> ✨</small>
+        </div>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for Products, Brands and More"
+            >
+
+        </div>
+
+        <button class="login-btn" id="loginBtn">
+            <i class="fa-solid fa-user"></i>
+            Login
+        </button>
+
+        <div class="nav-item">
+            <i class="fa-solid fa-store"></i>
+            <span>Become a Seller</span>
+        </div>
+
+        <div class="nav-item cart-icon" id="cartButton">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+            <b id="cartCount">0</b>
+        </div>
+
+    </header>
+
+
+    <!-- ================= CATEGORY BAR ================= -->
+
+    <section class="category-bar">
+
+        <div class="category" data-category="All">
+            <div class="category-icon">🛍️</div>
+            <p>All</p>
+        </div>
+
+        <div class="category" data-category="Grocery">
+            <div class="category-icon">🥦</div>
+            <p>Grocery</p>
+        </div>
+
+        <div class="category" data-category="Mobiles">
+            <div class="category-icon">📱</div>
+            <p>Mobiles</p>
+        </div>
+
+        <div class="category" data-category="Fashion">
+            <div class="category-icon">👕</div>
+            <p>Fashion</p>
+        </div>
+
+        <div class="category" data-category="Electronics">
+            <div class="category-icon">💻</div>
+            <p>Electronics</p>
+        </div>
+
+        <div class="category" data-category="Home">
+            <div class="category-icon">🏠</div>
+            <p>Home</p>
+        </div>
+
+        <div class="category" data-category="Appliances">
+            <div class="category-icon">📺</div>
+            <p>Appliances</p>
+        </div>
+
+        <div class="category" data-category="Travel">
+            <div class="category-icon">✈️</div>
+            <p>Travel</p>
+        </div>
+
+        <div class="category" data-category="Toys">
+            <div class="category-icon">🧸</div>
+            <p>Toys</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span>BIG SAVINGS DAYS</span>
+
+            <h1>Everything You Love.</h1>
+
+            <h2>Delivered To Your Door.</h2>
+
+            <p>
+                Discover amazing products at unbeatable prices.
+            </p>
+
+            <button id="shopNow">
+                Shop Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <div class="hero-image">
+            🛒
+        </div>
+
+    </section>
+
+
+    <!-- ================= OFFER STRIP ================= -->
+
+    <section class="offer-strip">
+
+        <div>
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Free Delivery</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-tags"></i>
+            <span>Best Prices</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Secure Payment</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Easy Returns</span>
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <main class="products-section" id="productsSection">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Top Deals</h2>
+                <p>Best products at amazing prices</p>
+            </div>
+
+            <button id="viewAllBtn">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="no-products" id="noProducts">
+            <i class="fa-solid fa-box-open"></i>
+            <h3>No Products Found</h3>
+            <p>Try another search or category.</p>
+        </div>
+
+    </main>
+
+
+    <!-- ================= CART SIDEBAR ================= -->
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+
+        <div class="cart-header">
+
+            <div>
+                <h2>My Cart</h2>
+                <span id="cartItemsText">0 Items</span>
+            </div>
+
+            <button id="closeCart">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="empty-cart" id="emptyCart">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <h3>Your cart is empty</h3>
+
+            <p>Add products to see them here.</p>
+
+            <button id="continueShopping">
+                Continue Shopping
+            </button>
+
+        </div>
+
+        <div class="cart-footer" id="cartFooter">
+
+            <div class="price-row">
+                <span>Subtotal</span>
+                <strong id="subtotal">₹0</strong>
+            </div>
+
+            <div class="price-row">
+                <span>Delivery</span>
+                <strong class="free">FREE</strong>
+            </div>
+
+            <hr>
+
+            <div class="total-row">
+                <span>Total Amount</span>
+                <strong id="totalPrice">₹0</strong>
+            </div>
+
+            <button class="place-order" id="placeOrder">
+                Place Order
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= PRODUCT MODAL ================= -->
+
+    <div class="modal-overlay" id="productModal">
+
+        <div class="product-modal">
+
+            <button class="modal-close" id="modalClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-image" id="modalImage"></div>
+
+            <div class="modal-info">
+
+                <span class="modal-category" id="modalCategory">
+                    Electronics
+                </span>
+
+                <h2 id="modalTitle"></h2>
+
+                <div class="rating">
+                    ⭐ <span id="modalRating"></span>
+                </div>
+
+                <h3 id="modalPrice"></h3>
+
+                <p id="modalDescription"></p>
+
+                <button class="modal-cart-btn" id="modalAddCart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= LOGIN MODAL ================= -->
+
+    <div class="modal-overlay" id="loginModal">
+
+        <div class="login-modal">
+
+            <button class="modal-close" id="loginClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="login-left">
+
+                <h2>Login</h2>
+
+                <p>
+                    Get access to your Orders,
+                    Wishlist and Recommendations.
+                </p>
+
+                <div class="login-illustration">
+                    🔐
+                </div>
+
+            </div>
+
+            <div class="login-right">
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter Email / Mobile Number"
+                >
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter Password"
+                >
+
+                <button id="loginSubmit">
+                    Login
+                </button>
+
+                <p class="new-account">
+                    New to Flipkart?
+                    <span>Create an account</span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Product added to cart</span>
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-main">
+
+            <div>
+                <h3>ABOUT</h3>
+                <p>Contact Us</p>
+                <p>About Us</p>
+                <p>Careers</p>
+                <p>Flipkart Stories</p>
+            </div>
+
+            <div>
+                <h3>HELP</h3>
+                <p>Payments</p>
+                <p>Shipping</p>
+                <p>Cancellation</p>
+                <p>Returns</p>
+            </div>
+
+            <div>
+                <h3>CONSUMER POLICY</h3>
+                <p>Terms Of Use</p>
+                <p>Security</p>
+                <p>Privacy</p>
+                <p>Sitemap</p>
+            </div>
+
+            <div>
+                <h3>SOCIAL</h3>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>YouTube</p>
+                <p>Instagram</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Flipkart Clone | Created using HTML, CSS & JavaScript
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
